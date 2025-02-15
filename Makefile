@@ -7,7 +7,8 @@ CFLAGS	:= -Wall -Wextra -Werror -Iheaders/
 # Zmienna z Opcjami Linkera
 MXFLAGS	:= -L../minilibx-linux -lmlx_Linux -lX11 -lXext
 # Zmienna przechowujaca sciezke do plikow zrodlowych .c z folderu game_functions
-SOURCE	:= test.c map_load.c map_rules.c map_validation.c
+SOURCE	:= so_long.c map_load.c map_rules.c map_validation.c free_map.c
+SOURCETest	:= test.c map_load.c map_rules.c map_validation.c free_map.c
 
 
 # -||- gnl
@@ -26,6 +27,13 @@ all:
 	# kompiluje wszystkie pliki zrodlowe i linkuje je razem z bibliotekami tworzac plik wykonwywalny
 	$(CC) $(CFLAGS) $(SOURCE) $(MXFLAGS) $(LIBFT) -o $(NAME)
 # wykonuje polecenie make clean i usuwa pliki tymczasowe oraz obiektowe 
+test:
+	# wykonuje make w folderze minilibx-linux
+	make -C $(MLIBX)
+	# kompiluje wszystkie pliki zrodlowe i linkuje je razem z bibliotekami tworzac plik wykonwywalny
+	$(CC) $(CFLAGS) $(SOURCETest) $(MXFLAGS) $(LIBFT) -o test
+
+
 clean:
 	make clean -C $(MLIBX)
 	rm -rf *.o

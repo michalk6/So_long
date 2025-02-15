@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 17:16:30 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/15 17:50:19 by mikurek          ###   ########.fr       */
+/*   Created: 2025/02/15 14:27:19 by mikurek           #+#    #+#             */
+/*   Updated: 2025/02/15 17:49:36 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/so_long.h"
 
-int	main(void)
+void	free_map(t_map *map)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	char	**to_free;
 
-	mlx = mlx_init();
-	img.img = mlx_new_image(mlx, 800, 600);
-	img.addr = mlx_get_data_addr(
-			img.img, &img.bits_per_pixel, &img.line_length, &img.endian
-			);
-	mlx_win = mlx_new_window(mlx, 800, 600, "title");
-	mlx_hook(mlx_win, 17, 0, (void *)exit, 0);
-	mlx_loop(mlx);
-	free(mlx_win);
-	free(mlx);
-	free(img.img);
-	return (EXIT_SUCCESS);
+	to_free = map->content;
+	free(map);
+	map = NULL;
+	ft_free_str_table(to_free);
+	to_free = NULL;
 }

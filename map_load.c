@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.c                                              :+:      :+:    :+:   */
+/*   map_load.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:41:50 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/09 16:04:37 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/02/15 17:01:05 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,17 @@ t_map	*ft_load_map(char *map_src)
 	fd = ft_open_map_src(map_src);
 	map->content = ft_get_content(map->height, fd);
 	map->width = ft_validate_width(map->content);
+	close(fd);
 	if (map->width == 0)
 	{
-		free(map);
-		map = NULL;
+		free_map(map);
+		return (NULL);
 	}
-	close(fd);
+	if (!ft_check_rules(map))
+	{
+		free_map(map);
+		ft_printf("map loading filed\n");
+		return (NULL);
+	}
 	return (map);
 }

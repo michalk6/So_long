@@ -6,13 +6,13 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:44:17 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/09 23:47:56 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/02/15 17:51:34 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/so_long.h"
 
-int	ft_is_closed(t_map *map)
+static int	ft_is_closed(t_map *map)
 {
 	char	**content;
 	size_t	i;
@@ -35,7 +35,7 @@ int	ft_is_closed(t_map *map)
 	return (1);
 }
 
-int	ft_has_player_exit(t_map *map)
+static int	ft_has_player_exit(t_map *map)
 {
 	int		player;
 	int		exit;
@@ -63,11 +63,13 @@ int	ft_has_player_exit(t_map *map)
 	return (player & exit);
 }
 
-int	ft_has_collectible(t_map *map)
+static void	ft_count_collectibles(t_map *map)
 {
 	size_t	i;
 	size_t	j;
+	int		collectibles;
 
+	collectibles = 0;
 	i = 0;
 	while (i < map->height)
 	{
@@ -75,10 +77,25 @@ int	ft_has_collectible(t_map *map)
 		while (j < map->width)
 		{
 			if (map->content[i][j] == 'C')
-				return (1);
+				collectibles++;
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	map->collectibles = collectibles;
+}
+
+static int	ft_has_collectible(t_map *map)
+{
+	ft_count_collectibles(map);
+	return (map->collectibles > 0);
+}
+
+int	ft_check_rules(t_map *map)
+{
+	return (
+		ft_is_closed(map)
+		&& ft_has_player_exit(map)
+		&& ft_has_collectible(map)
+	);
 }

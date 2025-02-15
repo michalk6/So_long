@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 20:22:29 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/12 00:37:22 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/02/15 17:00:35 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int	ft_check_reachable(t_map *map)
 	int		collectibles;
 	int		exit;
 
+	if (!ft_check_rules(map))
+		return (0);
 	i = 1;
 	j = 1;
 	content = ft_duplicate_content(map);
@@ -119,5 +121,5 @@ int	ft_check_reachable(t_map *map)
 	collectibles = ft_check_collectibles_reachable(content);
 	exit = ft_check_exit_reachable(content, map);
 	ft_free_str_table(content);
-	return (collectibles & exit);
+	return (collectibles && exit);
 }
