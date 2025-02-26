@@ -6,13 +6,13 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:41:50 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/15 17:01:05 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/02/26 23:43:45 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/so_long.h"
 
-static int	ft_open_map_src(char *map_src)
+static int	ft_open_map_src(char *map_src, t_map *map)
 {
 	int	fd;
 
@@ -20,6 +20,7 @@ static int	ft_open_map_src(char *map_src)
 	if (fd < 0)
 	{
 		perror("Failed to open map");
+		free(map);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -95,9 +96,9 @@ t_map	*ft_load_map(char *map_src)
 	map = malloc(sizeof(t_map));
 	if (map == NULL)
 		return (NULL);
-	fd = ft_open_map_src(map_src);
+	fd = ft_open_map_src(map_src, map);
 	map->height = ft_get_height(fd);
-	fd = ft_open_map_src(map_src);
+	fd = ft_open_map_src(map_src, map);
 	map->content = ft_get_content(map->height, fd);
 	map->width = ft_validate_width(map->content);
 	close(fd);
@@ -106,11 +107,11 @@ t_map	*ft_load_map(char *map_src)
 		free_map(map);
 		return (NULL);
 	}
-	if (!ft_check_rules(map))
+	if (!ft_check_reachable(map))
 	{
 		free_map(map);
-		ft_printf("map loading filed\n");
-		return (NULL);
+		ft_printf("map loading failed\n");
+		exit(EXIT_FAILURE);
 	}
 	return (map);
 }
