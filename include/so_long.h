@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:02:12 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 20:16:03 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:06:26 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define CHARACTER_DOWN		"assets/character_down.xpm"
 # define CHARACTER_LEFT		"assets/character_left.xpm"
 # define CHARACTER_RIGHT	"assets/character_right.xpm"
-# define PX_IMG 40
+# define PX_IMG 64
 
 typedef struct s_map
 {

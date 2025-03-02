@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:27:19 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 19:05:32 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 21:39:03 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ void	init_window(t_game *game)
 	if (game->window == NULL)
 		exit(EXIT_FAILURE);
 	game->window->mlx_ptr = mlx_init();
-	game->window->width = game->map->width * 40;
-	game->window->height = game->map->height * 40;
+	game->window->width = game->map->width * PX_IMG;
+	game->window->height = game->map->height * PX_IMG;
 	game->window->win_ptr = mlx_new_window(
 			game->window->mlx_ptr, game->window->width,
 			game->window->height, "so_long");

@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:27:05 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 20:42:33 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 21:06:14 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	move(t_game *game, int new_x, int new_y)
 		&& game->map->collectibles == 0
 	)
 	{
-		ft_printf("Congratulations you finished level\n");
+		ft_printf("Congratulations you finished level!\n");
 		exit_game(game);
 	}
 	game->map->content[old_y][old_x] = '0';
