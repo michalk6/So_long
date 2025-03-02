@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:49:39 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 20:17:01 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 20:41:16 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 
 void	display_stats(t_game *game, int dir)
 {
-	int i;
+	char	*steps;
+	char	msg[256];
+	char	*info;
 
-	ft_printf("%c pressed\n", dir);
-	i = 0;
-	if (game->map != NULL)
-	{
-		while ((game->map->content)[i] != NULL)
-		{
-			ft_printf("%s\n", (game->map->content)[i]);
-			i++;
-		}
-		ft_printf("collectibles = %d\n", game->map->collectibles);
-		ft_printf("map size %d x %d\n", game->map->width, game->map->height);
-		ft_printf("player initial coordinates x = %d, y = %d\n"
-			, game->player->x, game->player->y);
-		ft_printf("moves %d\n", game->player->moves);
-	}
+	info = "Exit is open now!";
+	steps = ft_itoa(game->player->moves);
+	ft_strlcpy(msg, "Steps taken: ", sizeof(msg));
+	ft_strlcat(msg, steps, sizeof(msg));
+	if (game->map->collectibles == 0)
+		mlx_string_put(game->window->mlx_ptr, game->window->win_ptr, 10,
+			40, 0xFF0000, info);
+	mlx_string_put(game->window->mlx_ptr, game->window->win_ptr, 10,
+		20, 0xFFFFFF, "                                ");
+	mlx_string_put(game->window->mlx_ptr, game->window->win_ptr, 10,
+		20, 0xFFFFFF, msg);
+	free(steps);
 }
 
 static void	draw_asset(t_game *game, int x, int y, int dir)
