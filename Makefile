@@ -7,7 +7,9 @@ CFLAGS	:= -Wall -Wextra -Werror -Iheaders/
 # Zmienna z Opcjami Linkera
 MXFLAGS	:= -L../minilibx-linux -lmlx_Linux -lX11 -lXext
 # Zmienna przechowujaca sciezke do plikow zrodlowych .c z folderu game_functions
-SOURCE	:= map_load.c map_rules.c map_validation.c free_map.c init_data.c
+SOURCE	:= 	map_load.c map_rules.c map_validation.c free_elements.c init_data.c \
+			init_data_utils.c play_game.c control.c control_utils.c graph_render.c \
+			graph_assets.c
 SOURCESL	:= so_long.c
 SOURCEMAP	:= test_map.c $(SOURCE)
 SOURCEGRAPH	:= test_graphic.c $(SOURCE)

@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:16:30 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/26 20:10:27 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 16:29:19 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	init_data(&game, argv);
-	// reading_files();
-	// start_game();
+	play_game(&game);
 	return (EXIT_SUCCESS);
 }
