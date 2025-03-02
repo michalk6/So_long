@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 17:02:12 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 23:06:26 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:47:14 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ typedef struct s_textures
 	void	*collectible;
 }	t_textures;
 
-
 typedef struct s_game
 {
 	t_window	*window;
@@ -104,7 +103,5 @@ void	draw_floor(t_game *game, int x, int y);
 
 void	free_map(t_map *map);
 void	free_game(t_game *game);
-
-// void	*exit_game(t_game *game);
 
 #endif

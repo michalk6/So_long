@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:49:39 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 21:16:18 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:44:37 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	display_stats(t_game *game, int dir)
 		20, 0xFFFFFF, msg);
 	if (game->map->collectibles == 0)
 		mlx_string_put(game->window->mlx_ptr, game->window->win_ptr, 10,
-			40, 0x00FF10, info);
+			40, 0xFFFF70, info);
 	free(steps);
 }
 
