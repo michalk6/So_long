@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:49:39 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/03 20:19:28 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:30:50 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	display_stats(t_game *game)
 
 	info = "Exit is now open!";
 	steps = ft_itoa(game->player->moves);
-	ft_strlcpy(msg, "Steps taken: ", sizeof(msg));
+	ft_strlcpy(msg, "Number of moves: ", sizeof(msg));
 	ft_strlcat(msg, steps, sizeof(msg));
 	mlx_string_put(game->window->mlx_ptr, game->window->win_ptr, 10,
 		20, 0xFFFFFF, msg);

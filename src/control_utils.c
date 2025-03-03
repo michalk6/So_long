@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:27:05 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/03 20:14:23 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:37:12 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ void	move(t_game *game, int new_x, int new_y)
 	game->player->x = new_x;
 	game->player->y = new_y;
 	game->player->moves++;
-	ft_printf("moves %d\n", game->player->moves);
+	ft_printf("Number of moves: %d\n", game->player->moves);
 }
