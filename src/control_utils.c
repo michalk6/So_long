@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:27:05 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 21:06:14 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:14:23 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 int	valid_move(t_game *game, int new_x, int new_y)
 {

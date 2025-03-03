@@ -1,53 +1,56 @@
-# Nazwa pliku utworzonego po kompilacji
-NAME	:= so_long
-# Okreslenie ktory kompilator ma zostac uzyty
-CC	:= gcc
-# Zmienna przechowujaca Flagi czyli opcje kompilacji
-CFLAGS	:= -Wall -Wextra -Werror -Iheaders/
-# Zmienna z Opcjami Linkera
-MXFLAGS	:= -L../minilibx-linux -lmlx_Linux -lX11 -lXext
-# Zmienna przechowujaca sciezke do plikow zrodlowych .c z folderu game_functions
-SOURCE	:= 	map_load.c map_rules.c map_validation.c free_elements.c init_data.c \
-			init_data_utils.c play_game.c control.c control_utils.c graph_render.c \
-			graph_assets.c
-SOURCESL	:= so_long.c
-SOURCEMAP	:= test_map.c $(SOURCE)
-SOURCEGRAPH	:= test_graphic.c $(SOURCE)
+NAME	= 	so_long
 
+SRCDIR 	= 	src
 
-# -||- gnl
-# GNL	:= get_next_line/*.c
-# -||- libf
-# LIBFT	:= libft/*.c
-# -||- printf
-# PRINTF	:= ft_printf/*.c
-# Zmienna przechowujaca sciezke do folderu minilibx-linux
-MLIBX	:= ../minilibx-linux/
-LIBFT	:= ./libftprintf/libftprintf.a
-# Cele
-all:
-	# wykonuje make w folderze minilibx-linux
-	make -C $(MLIBX)
-	# kompiluje wszystkie pliki zrodlowe i linkuje je razem z bibliotekami tworzac plik wykonwywalny
-	$(CC) $(SOURCE) $(SOURCESL) $(MXFLAGS) $(LIBFT) -o $(NAME)
-# wykonuje polecenie make clean i usuwa pliki tymczasowe oraz obiektowe 
-map:
-	# wykonuje make w folderze minilibx-linux
-	make -C $(MLIBX)
-	# kompiluje wszystkie pliki zrodlowe i linkuje je razem z bibliotekami tworzac plik wykonwywalny
-	$(CC) $(CFLAGS) $(SOURCEMAP) $(MXFLAGS) $(LIBFT) -o test_map
+INCDIR 	= 	include
 
-rainbow:
-	# wykonuje make w folderze minilibx-linux
-	make -C $(MLIBX)
-	# kompiluje wszystkie pliki zrodlowe i linkuje je razem z bibliotekami tworzac plik wykonwywalny
-	$(CC) $(CFLAGS) $(SOURCEGRAPH) $(MXFLAGS) $(LIBFT) -o test_rainbow
+SRCS	=	$(SRCDIR)/control_utils \
+			$(SRCDIR)/control \
+			$(SRCDIR)/free_elements \
+			$(SRCDIR)/graph_assets \
+			$(SRCDIR)/graph_render \
+			$(SRCDIR)/init_data_utils \
+			$(SRCDIR)/init_data \
+			$(SRCDIR)/map_load \
+			$(SRCDIR)/map_rules \
+			$(SRCDIR)/map_validation \
+			$(SRCDIR)/play_game \
+			$(SRCDIR)/so_long \
+
+CC			= cc
+
+FLAGS		= -Wall -Wextra -Werror
+
+CFILES		= $(SRCS:%=%.c)
+
+OFILES		= $(SRCS:%=%.o)
+
+LIBFTDIR	= ./libftprintf
+
+MLIBXDIR	= ../minilibx-linux/
+
+LIBFT		= -L ./libftprintf -lftprintf
+
+MLIBX		= -L ../minilibx-linux -lmlx_Linux -lX11 -lXext
+
+%.o: %.c
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(NAME): $(OFILES)
+	$(MAKE) -C $(LIBFTDIR)
+	$(MAKE) -C $(MLIBXDIR)
+	$(CC) $(FLAGS) $(OFILES) -o $(NAME) $(LIBFT) $(MLIBX)
+
+all: $(NAME)
 
 clean:
-	make clean -C $(MLIBX)
-	rm -rf *.o
-# to samo co clean + usuwa plik wykonywalny
+	$(MAKE) clean -C $(LIBFTDIR)
+	rm -f $(OFILES)
+
 fclean: clean
-	rm -rf $(NAME) test_map test_rainbow
-# usuwanie + ponowna kompilacja projektu od poczatku
+	$(MAKE) fclean -C $(LIBFTDIR)
+	rm -f $(NAME)
+
 re: fclean all
+
+.PHONY: all clean fclean re bonus

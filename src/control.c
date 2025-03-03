@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:40:19 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/03 00:40:59 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:14:16 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 static void	move_up(t_game *game)
 {

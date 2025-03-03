@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:27:19 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 21:39:03 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:14:37 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 void	init_map(t_game *game, char **argv)
 {

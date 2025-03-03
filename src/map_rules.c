@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:44:17 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/15 17:51:34 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:15:04 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 static int	ft_is_closed(t_map *map)
 {

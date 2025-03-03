@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 20:22:29 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/15 17:00:35 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:15:05 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 void	ft_fill_reacheable_area(char **content, int i, int j)
 {

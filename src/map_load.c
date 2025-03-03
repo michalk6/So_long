@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:41:50 by mikurek           #+#    #+#             */
-/*   Updated: 2025/02/26 23:43:45 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:15:03 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 static int	ft_open_map_src(char *map_src, t_map *map)
 {

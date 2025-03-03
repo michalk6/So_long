@@ -6,11 +6,11 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 20:14:11 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 20:17:25 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:14:31 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
 void	draw_player(t_game *game, int x, int y, int dir)
 {

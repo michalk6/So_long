@@ -6,13 +6,13 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 17:49:39 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 23:44:37 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:19:28 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/so_long.h"
+#include "../include/so_long.h"
 
-void	display_stats(t_game *game, int dir)
+void	display_stats(t_game *game)
 {
 	char	*steps;
 	char	msg[256];
@@ -49,8 +49,8 @@ static void	draw_asset(t_game *game, int x, int y, int dir)
 
 void	render_map(t_game *game, int dir)
 {
-	int	y;
-	int	x;
+	size_t	y;
+	size_t	x;
 
 	y = 0;
 	while (y < game->map->height)
@@ -63,5 +63,5 @@ void	render_map(t_game *game, int dir)
 		}
 		y++;
 	}
-	display_stats(game, dir);
+	display_stats(game);
 }
