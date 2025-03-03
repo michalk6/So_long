@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:41:50 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/03 20:50:52 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 21:28:28 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ t_map	*ft_load_map(char *map_src)
 	if (!ft_check_reachable(map))
 	{
 		free_map(map);
-		ft_printf("map loading failed\n");
+		ft_printf("Map loading failed\n");
 		exit(EXIT_FAILURE);
 	}
 	return (map);

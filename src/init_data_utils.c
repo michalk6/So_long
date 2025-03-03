@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:27:19 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/03 20:14:37 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 22:00:23 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_map(t_game *game, char **argv)
 	if (ft_strlen(argv[1]) < 4
 		|| ft_strcmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber"))
 	{
-		ft_printf("map must be in .ber format\n");
+		ft_printf("Map must be in .ber format\n");
 		exit(EXIT_FAILURE);
 	}
 	game->map = ft_load_map(argv[1]);

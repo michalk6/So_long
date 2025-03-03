@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:40:19 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/03 20:14:16 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 22:13:33 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int	control_key_function(int keysym, t_game *game)
 {
 	if (keysym == XK_Escape)
 		exit_game(game);
-	if (keysym == XK_w)
+	if (keysym == XK_w || keysym == XK_Up)
 		move_up(game);
-	if (keysym == XK_s)
+	if (keysym == XK_s || keysym == XK_Down)
 		move_down(game);
-	if (keysym == XK_a)
+	if (keysym == XK_a || keysym == XK_Left)
 		move_left(game);
-	if (keysym == XK_d)
+	if (keysym == XK_d || keysym == XK_Right)
 		move_right(game);
 	return (0);
 }
