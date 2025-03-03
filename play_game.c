@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:17:33 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 18:22:57 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 18:27:35 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	exit_game(t_game *game)
 {
-	mlx_destroy_window(game->window->mlx_ptr, game->window->win_ptr);
-	mlx_destroy_display(game->window->mlx_ptr);
 	free_game(game);
 	exit(EXIT_SUCCESS);
 }

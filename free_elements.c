@@ -6,7 +6,7 @@
 /*   By: mikurek <mikurek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 14:27:19 by mikurek           #+#    #+#             */
-/*   Updated: 2025/03/02 23:46:37 by mikurek          ###   ########.fr       */
+/*   Updated: 2025/03/03 18:34:18 by mikurek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,52 +23,27 @@ void	free_map(t_map *map)
 	to_free = NULL;
 }
 
-// if (!game->textures)
-// 	return;
-// if (game->textures->wall)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->wall);
-// if (game->textures->floor)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->floor);
-// if (game->textures->character_up)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_up);
-// if (game->textures->character_down)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_down);
-// if (game->textures->character_left)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_left);
-// if (game->textures->character_right)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_right);
-// if (game->textures->collectible)
-// 	mlx_destroy_image(game->window->mlx_ptr, game->textures->collectible);
-
-// free(game->textures);
-// game->textures = NULL;
-
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->wall);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->floor);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->character_up);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->character_down);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->character_left);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->character_right);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures->collectible);
-// mlx_destroy_image(game->window->mlx_ptr, game->textures);
-
-void	free_textures(t_game *game)
+static void	mlx_destroy_all(t_game *game)
 {
-	free(game->textures->wall);
-	free(game->textures->floor);
-	free(game->textures->character_up);
-	free(game->textures->character_down);
-	free(game->textures->character_left);
-	free(game->textures->character_right);
-	free(game->textures->collectible);
-	free(game->textures);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->wall);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->floor);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_up);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_down);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_left);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->character_right);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->collectible);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->exit_close);
+	mlx_destroy_image(game->window->mlx_ptr, game->textures->exit_open);
+	mlx_destroy_window(game->window->mlx_ptr, game->window->win_ptr);
+	mlx_destroy_display(game->window->mlx_ptr);
 }
 
 void	free_game(t_game *game)
 {
 	free_map(game->map);
-	free_textures(game);
+	mlx_destroy_all(game);
 	free(game->window->mlx_ptr);
+	free(game->textures);
 	free(game->window);
 	free(game->player);
 }
